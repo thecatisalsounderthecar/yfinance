@@ -84,7 +84,7 @@ python -c "print('hello maths master, 1+1=',1+1)"
 - 先安装git: https://git-scm.com/install/
 - 在VS Code中，拉取一个项目
 ```bash
-git clone https://github.com/LastAncientOne/Stock_Analysis_For_Quant
+git clone https://github.com/gamcing/yfinance_playground.git
 ```
 *卡住了？*
 
