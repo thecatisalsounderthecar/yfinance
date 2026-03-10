@@ -26,9 +26,10 @@ jincheng@sufe.edu.cn
   - 国内(清华)：https://mirrors.tuna.tsinghua.edu.cn/anaconda/archive
 - 编程环境：
   - 记事本
+  - Jupyter Notebook / Jupyter Lab
   - Microsoft Visual Studio Code：https://code.visualstudio.com/
   - PyCharm：https://www.jetbrains.com/pycharm/
-  - Jupyter Notebook / Jupyter Lab
+  - Spyder
 
 ---
 
