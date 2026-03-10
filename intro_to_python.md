@@ -59,15 +59,15 @@ pip config set trusted-host mirrors.cloud.tencent.com
 ```
 ---
 ## 云端编程
-- GitHub Codespaces：https://github.com/codespaces/new
+- GitHub Codespaces：https://github.com/codespaces
 - Google Colab：https://colab.research.google.com/
 - 腾讯云Cloud Studio
   - 类VS Code模式：https://ide.cloud.tencent.com/
   - 简易应用模式：https://cloudstudio.net/
 
 ---
-## 运行第一个Python程序——完成第一阶段
-- 使用终端试一试：
+## 运行第一个Python程序
+- 在canvas下载simple_demo.py，使用终端试一试：
 ```cmd
 python simple_demo.py
 ```
@@ -78,19 +78,57 @@ python simple_demo.py
   - Cloud Studio
 
 ---
-## 第二阶段：从金融Python教学项目学习pandas
-- 先安装git: https://git-scm.com/install/
-- 在VS Code中，拉取一个项目
+## 用人生第一个python库：requests
+### 小练习
+> 改一改：把前述输出，通过机器人发送到企业微信群。
+
+- 在终端环境安装requests库
+```bash
+pip install requests
+```
+
+### 构造requests代码推荐工具
+- Postman：https://www.postman.com/
+
+
+--- 
+## requests应用：领麦当劳优惠券
+- 登录麦当劳MCP平台，获得自己的token：https://open.mcd.cn/mcp
+```python
+import requests
+host_url = "https://mcp.mcd.cn/mcp-servers/mcd-mcp"
+headers = {
+    'Authorization':'Bearer 【你的token】' # 这个地方要替换成你自己的token
+}
+request_body = {
+    "jsonrpc": "2.0",
+    "id": 2,
+    "method": "tools/call",
+    "params": {
+        "name": "auto-bind-coupons"
+    }
+}
+response = requests.post(host_url, json=request_body, headers=headers)
+response.json()
+```
+---
+
+
+## 拉取金融Python学习项目
+- 拉取一个项目（使用终端 或 VS Code）
 ```bash
 git clone https://github.com/gamcing/yfinance_playground.git
 ```
-*卡住了？*
+### 没有Git?
+> 先安装git: https://git-scm.com/install/
 
-可以尝试借助一些网游加速器加速GitHub：https://steampp.net/
+### 卡住了？
+> 可以尝试借助一些网游加速器加速GitHub：https://steampp.net/
 
 ---
 
-## 第三阶段：使用tushare
+
+## 使用tushare
 
 - 官方文档：https://tushare.pro/document/2
 
@@ -100,3 +138,7 @@ pro = ts.pro_api('你的tushare_token')
 df = pro.stock_basic(exchange='', list_status='L', fields='ts_code,symbol,name,area,industry,list_date')
 print(df.head())
 ```
+### 试一试
+1. 获取沪深300成分股票最近一年的日度收盘价数据
+2. 计算每只股票的日度收益率、沪深300指数的日度收益率
+3. 计算每只股票的beta值，画成散点图
